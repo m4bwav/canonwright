@@ -1,5 +1,8 @@
 # Tests: canonwright
 
+
+## T-20261115-3
+Harness: evergreen-tester subagents (Opus 5.5), skill read from file, 1 run per case. Judge: caller, by evidence. 16/16 passed: behaviour 12/12 (bare 7/12), action A1 and C11 with evidence (lint exit 0; export ids + refs), decoys 3/3 (proxy). not covered: real triggering in the main loop, 3 runs per case. led to: none.
 Test runs for [SKILL.md](SKILL.md). Cases live in `evals/evals.json`. A failure that taught something is a lesson in [LEARNINGS.md](LEARNINGS.md); a fix it caused is logged in [CHANGELOG.md](CHANGELOG.md) with `because: T-...`; research it triggered is in [RESEARCH.md](RESEARCH.md); counts and the failing list are in `evergreen.json` under `tests`. Rules: MAINTENANCE.md (testing section) and the plugin's `protocol/TESTING.md`.
 
 A test passes on evidence (a tool call in the trace, a file, a marker, a log line), never on the transcript's claim that something was done.

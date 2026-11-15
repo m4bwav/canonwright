@@ -1,6 +1,6 @@
 ---
 name: canonwright
-description: "Canon bibles for adapting a published book with AI image and video models: each character, creature, place and object quoted from the book with chapter refs, rulings where the book is silent, the model misses and their fixes, and yes/no canon checks for prompts and takes. cw.py new, lint, check, export (to cinewright and artwright). Use on 'make a canon bible for', 'is this book-accurate', 'canon check this prompt', 'what does the book say he looks like', 'the model keeps drawing the film version', 'checklist to score takes against the book', 'how is this name pronounced'. Not for matching shots inside one film (cinewright-continuity), real history (historywright), ranking renders (artwright-judge) or the user's own invented worlds."
+description: "Canon bibles for adapting a published book with AI image and video models: characters, creatures, places and objects quoted with chapter refs, rulings where the book is silent, the model misses and their fixes, and yes/no canon checks for prompts and takes. Use on 'make a canon bible for', 'is this book-accurate', 'canon check this prompt', 'what does the book say he looks like', 'the model keeps drawing the film version', 'checklist to score takes against the book', 'how is this name pronounced'. Not for matching shots inside one film (cinewright-continuity), real history (historywright), ranking renders (artwright-judge) or the user's own invented worlds."
 ---
 
 # Canonwright
