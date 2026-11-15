@@ -11,3 +11,7 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 ### T-20261115-1 · 2026-11-15 · not yet run · skill · 0/0
 - Suite scaffolded; no run recorded. Write the cases in `evals/evals.json` (at least two trigger prompts, two decoys, one action case with evidence, one outcome case), run the baseline without the skill, then run with it (`evergreen-test`).
 - led to: none
+
+### T-20261115-1 · 2026-11-15 · python unittest · repo · 20/20 (CANONWRIGHT_HOME set; leak test fails 2/2 with no term list, by design)
+- Skill-on eval runs and decoys owed (step F); bare baseline 7/12 is in the private sidecar.
+- led to: none
