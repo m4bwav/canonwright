@@ -6,7 +6,7 @@ Commands (stdlib only, deterministic):
   lint [bible ...]            check bibles (default: examples/ and $CANONWRIGHT_HOME/bibles)
   md <bible>                  regenerate bible.md from bible.json
   check <bible> <prompt.txt>  flag never_say words, list checks for entities named
-  export <bible> --to cinewright|artwright
+  export <bible> --to cinewright|artwright [--out FILE]
 
 A <bible> is a folder holding bible.json, or the bible.json path itself.
 Exit codes: 0 ok, 1 findings, 2 usage or file error.
@@ -227,7 +227,14 @@ def export(b, to):
 
 
 def cmd_export(a):
-    print(json.dumps(export(load(a.bible), a.to), indent=2, ensure_ascii=False))
+    text = json.dumps(export(load(a.bible), a.to), indent=2, ensure_ascii=False)
+    if a.out:
+        os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
+        with open(a.out, "w", encoding="utf-8", newline="\n") as f:
+            f.write(text + "\n")
+        print("wrote %s" % a.out)
+    else:
+        print(text)
     return 0
 
 
@@ -256,6 +263,7 @@ def main(argv=None):
     x = sub.add_parser("export")
     x.add_argument("bible")
     x.add_argument("--to", choices=["cinewright", "artwright"], required=True)
+    x.add_argument("--out", help="write the JSON to this file instead of stdout")
     x.set_defaults(fn=cmd_export)
     a = ap.parse_args(argv)
     try:

@@ -1,5 +1,7 @@
 # canonwright
 
+![canonwright banner](.github/images/banner.jpg)
+
 A Claude Code plugin for adapting a published book with AI image and video models. It keeps a canon bible per book: what the text says each character, creature, place and object looks like (quoted, with chapter refs), what you ruled where the book is silent, what the models keep getting wrong and what fixed it, and yes/no checks you can score takes against.
 
 ## Install
@@ -17,7 +19,7 @@ Ask "make a canon bible for the Morlocks from The Time Machine" or "canon check 
 python skills/canonwright/scripts/cw.py new "The Time Machine" --dir bibles --public-domain
 python skills/canonwright/scripts/cw.py lint bibles/the-time-machine
 python skills/canonwright/scripts/cw.py check bibles/the-time-machine prompt.txt
-python skills/canonwright/scripts/cw.py export bibles/the-time-machine --to artwright
+python skills/canonwright/scripts/cw.py export bibles/the-time-machine --to artwright --out brief.json
 ```
 
 Python 3.8+, standard library only. Worked example: [Frankenstein (1818)](skills/canonwright/examples/frankenstein-1818/bible.md), where the book's creature (yellow skin, flowing black hair, black lips) is not the film's.
