@@ -1,0 +1,26 @@
+{
+  "canonwright": "banner",
+  "route": "comfyui",
+  "host": "local ComfyUI",
+  "model": "FLUX.3 Klein distilled (flux3-image-klein-int8-convrot) + qwen3vl_4b text encoder + flux2-vae",
+  "prompt": "Wide cinematic banner of a quiet reading desk at night. An old leather-bound book lies open on a dark wooden desk, lit by a warm brass oil lantern. Above and beside it, several pencil and ink character sketches are pinned to a cork board and laid on the desk next to the open page, as if being compared against the book's descriptions; a magnifying glass and a pencil rest between them. Warm amber lantern light, deep blue shadows, painterly detailed illustration, calm and orderly, plenty of calm empty space, clean uncluttered composition, no lettering, no text, no readable words on the pages or sketches, no logos.",
+  "negative": "",
+  "seed": 61101,
+  "size": {
+    "w": 1536,
+    "h": 640
+  },
+  "steps": 16,
+  "cfg": 1.0,
+  "sampler": "euler",
+  "scheduler": "simple",
+  "output": {
+    "format": "jpeg",
+    "quality": 88
+  },
+  "candidates": [
+    61101,
+    61102,
+    61103
+  ]
+}

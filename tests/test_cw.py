@@ -96,6 +96,14 @@ class Export(unittest.TestCase):
         self.assertIn("creature-black-lips", ids)
         self.assertTrue(all(c["ref"] for c in out["brief_checks"]))
 
+    def test_out_file(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "sub", "brief.json")
+            rc = cw.main(["export", EXAMPLE, "--to", "artwright", "--out", path])
+            self.assertEqual(rc, 0)
+            with open(path, encoding="utf-8") as f:
+                self.assertIn("brief_checks", json.load(f))
+
 
 class Cli(unittest.TestCase):
     def run_cw(self, *args):

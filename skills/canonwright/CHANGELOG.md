@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261115-2 · 2026-11-15 · cw.py export --out
+- because: user request
+- files: scripts/cw.py (export), tests/test_cw.py (Export)
+- `export` can write its JSON to a file with `--out` instead of stdout.
+
 ### C-20261115-1 · 2026-11-15 · Created as an evergreen unit
 - because: user request
 - files: SKILL.md, RESEARCH.md, LEARNINGS.md, evergreen.json (skills: also TESTS.md and evals/evals.json)
