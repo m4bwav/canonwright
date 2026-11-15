@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "targets": [
+    {"kind": "reddit", "sub": "aivideo", "keep": "character consistency in book or story adaptations; model misses on known characters"},
+    {"kind": "reddit", "sub": "StableDiffusion", "keep": "keeping a described character on-model; reference editing vs text-to-image"},
+    {"kind": "web", "url": "https://www.gutenberg.org/", "keep": "public-domain texts for example bibles"}
+  ]
+}

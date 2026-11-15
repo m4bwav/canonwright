@@ -1,0 +1,63 @@
+{
+  "work": "frankenstein-1818",
+  "title": "Frankenstein; or, The Modern Prometheus",
+  "author": "Mary Wollstonecraft Shelley",
+  "edition": "1818 first edition (three volumes); public domain. Chapter refs are 1818 numbering (the 1831 text shifts chapters).",
+  "public_domain": true,
+  "entries": [
+    {
+      "id": "creature",
+      "kind": "creature",
+      "name": "the creature",
+      "aliases": ["Frankenstein's creature", "Frankenstein's monster", "the monster", "the daemon"],
+      "canon": [
+        {"quote": "His yellow skin scarcely covered the work of muscles and arteries beneath", "ref": "Vol. I, ch. IV", "verified": true},
+        {"quote": "his hair was of a lustrous black, and flowing; his teeth of a pearly whiteness", "ref": "Vol. I, ch. IV", "verified": true},
+        {"quote": "his watery eyes, that seemed almost of the same colour as the dun white sockets in which they were set", "ref": "Vol. I, ch. IV", "verified": true},
+        {"quote": "his shrivelled complexion, and straight black lips", "ref": "Vol. I, ch. IV", "verified": true},
+        {"quote": "of a gigantic stature; that is to say, about eight feet in height, and proportionably large", "ref": "Vol. I, ch. III", "verified": false}
+      ],
+      "ruling": [
+        {"text": "clothing: a plain dark cloak and rough worn clothes taken in the woods", "why": "book silent on dress at creation; he later finds and wears clothes", "by": "example", "date": "2026-11-15"},
+        {"text": "no neck bolts, no stitches across the forehead", "why": "book silent on the method of assembly; bolts and stitches come from the 1931 film", "by": "example", "date": "2026-11-15"}
+      ],
+      "prefer": "book over the 1931 film look (green skin, flat-topped head, neck bolts)",
+      "misses": [
+        {"model": "any text-to-image model", "miss": "draws the film look: green skin, flat head, bolts", "fix": "describe yellow skin, long flowing black hair, black lips; keep 'Frankenstein' out of the prompt", "route": "wording", "verified": false}
+      ],
+      "never_say": ["Frankenstein", "monster", "bolts", "green skin", "flat-top"],
+      "checks": [
+        {"code": "yellow-skin", "claim": "skin reads yellowish, thin over muscle, not green or grey", "ref": "Vol. I, ch. IV"},
+        {"code": "black-flowing-hair", "claim": "long, lustrous, flowing black hair; no flat-topped head", "ref": "Vol. I, ch. IV"},
+        {"code": "black-lips", "claim": "lips are straight and black", "ref": "Vol. I, ch. IV"},
+        {"code": "watery-pale-eyes", "claim": "eyes watery and nearly as pale as their sockets", "ref": "Vol. I, ch. IV"},
+        {"code": "no-bolts", "claim": "no neck bolts or forehead stitches", "ref": "ruling (book silent)"}
+      ],
+      "corrections": []
+    },
+    {
+      "id": "workshop",
+      "kind": "place",
+      "name": "the workshop",
+      "aliases": ["laboratory", "workshop of filthy creation"],
+      "canon": [
+        {"quote": "a solitary chamber, or rather cell, at the top of the house", "ref": "Vol. I, ch. III", "verified": false},
+        {"quote": "my workshop of filthy creation", "ref": "Vol. I, ch. III", "verified": false},
+        {"quote": "by the glimmer of the half-extinguished light", "ref": "Vol. I, ch. IV", "verified": true}
+      ],
+      "ruling": [
+        {"text": "a small attic cell lit by one guttering candle; no lightning towers or electrical machinery", "why": "book names no apparatus; the machinery is from the films", "by": "example", "date": "2026-11-15"}
+      ],
+      "prefer": "book over the film laboratory",
+      "misses": [
+        {"model": "any text-to-image model", "miss": "a large stone laboratory with sparking coils", "fix": "say 'small attic room, sloping ceiling, one candle', drop 'laboratory'", "route": "wording", "verified": false}
+      ],
+      "never_say": ["laboratory", "lightning", "Tesla coil"],
+      "checks": [
+        {"code": "attic-cell", "claim": "a small room at the top of a house, not a hall", "ref": "Vol. I, ch. III"},
+        {"code": "candle-light", "claim": "lit by a single dim light, no electrical sparks", "ref": "Vol. I, ch. IV"}
+      ],
+      "corrections": []
+    }
+  ]
+}
