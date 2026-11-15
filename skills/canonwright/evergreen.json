@@ -13,15 +13,15 @@
   "source": null,
   "topic": "Canon bibles for adapting books with AI image and video models",
   "tier": "slow",
-  "interval_days": 120,
+  "interval_days": 150.0,
   "last_checked": "2026-11-15",
-  "next_due": "2026-11-15",
+  "next_due": "2027-04-28",
   "verify_at_use": false,
   "volatile_claims": [],
   "contradiction": null,
   "events": [],
   "streak": {
-    "quiet": 0,
+    "quiet": 1,
     "pinned_min": 0,
     "pinned_max": 0,
     "vau_quiet": 0
@@ -32,12 +32,18 @@
       "m": null,
       "interval_after": 120,
       "note": "created"
+    },
+    {
+      "date": "2026-11-15",
+      "m": 0.0,
+      "interval_after": 150.0,
+      "note": "quiet: no agentskills spec change; cost: searches 1 · fetches 0 · tool calls 1"
     }
   ],
   "counts": {
     "learnings": 19,
     "changes": 0,
-    "research": 0,
+    "research": 1,
     "tests": 1
   },
   "consolidate_every": 25,
