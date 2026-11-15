@@ -10,7 +10,7 @@ Generated from bible.json by `cw.py md`; edit the JSON, not this file.
 - "his hair was of a lustrous black, and flowing; his teeth of a pearly whiteness" (Vol. I, ch. IV)
 - "his watery eyes, that seemed almost of the same colour as the dun white sockets in which they were set" (Vol. I, ch. IV)
 - "his shrivelled complexion, and straight black lips" (Vol. I, ch. IV)
-- "of a gigantic stature; that is to say, about eight feet in height, and proportionably large" (Vol. I, ch. III) [unverified]
+- "of a gigantic stature; that is to say, about eight feet in height, and proportionably large" (Vol. I, ch. III)
 - Ruling: clothing: a plain dark cloak and rough worn clothes taken in the woods (why: book silent on dress at creation; he later finds and wears clothes; by example, 2026-11-15)
 - Ruling: no neck bolts, no stitches across the forehead (why: book silent on the method of assembly; bolts and stitches come from the 1931 film; by example, 2026-11-15)
 - Prefer: book over the 1931 film look (green skin, flat-topped head, neck bolts)
@@ -24,8 +24,8 @@ Generated from bible.json by `cw.py md`; edit the JSON, not this file.
 
 ## the workshop (place)
 
-- "a solitary chamber, or rather cell, at the top of the house" (Vol. I, ch. III) [unverified]
-- "my workshop of filthy creation" (Vol. I, ch. III) [unverified]
+- "a solitary chamber, or rather cell, at the top of the house" (Vol. I, ch. III)
+- "my workshop of filthy creation" (Vol. I, ch. III)
 - "by the glimmer of the half-extinguished light" (Vol. I, ch. IV)
 - Ruling: a small attic cell lit by one guttering candle; no lightning towers or electrical machinery (why: book names no apparatus; the machinery is from the films; by example, 2026-11-15)
 - Prefer: book over the film laboratory

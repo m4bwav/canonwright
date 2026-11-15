@@ -15,7 +15,7 @@
         {"quote": "his hair was of a lustrous black, and flowing; his teeth of a pearly whiteness", "ref": "Vol. I, ch. IV", "verified": true},
         {"quote": "his watery eyes, that seemed almost of the same colour as the dun white sockets in which they were set", "ref": "Vol. I, ch. IV", "verified": true},
         {"quote": "his shrivelled complexion, and straight black lips", "ref": "Vol. I, ch. IV", "verified": true},
-        {"quote": "of a gigantic stature; that is to say, about eight feet in height, and proportionably large", "ref": "Vol. I, ch. III", "verified": false}
+        {"quote": "of a gigantic stature; that is to say, about eight feet in height, and proportionably large", "ref": "Vol. I, ch. III", "verified": true}
       ],
       "ruling": [
         {"text": "clothing: a plain dark cloak and rough worn clothes taken in the woods", "why": "book silent on dress at creation; he later finds and wears clothes", "by": "example", "date": "2026-11-15"},
@@ -41,8 +41,8 @@
       "name": "the workshop",
       "aliases": ["laboratory", "workshop of filthy creation"],
       "canon": [
-        {"quote": "a solitary chamber, or rather cell, at the top of the house", "ref": "Vol. I, ch. III", "verified": false},
-        {"quote": "my workshop of filthy creation", "ref": "Vol. I, ch. III", "verified": false},
+        {"quote": "a solitary chamber, or rather cell, at the top of the house", "ref": "Vol. I, ch. III", "verified": true},
+        {"quote": "my workshop of filthy creation", "ref": "Vol. I, ch. III", "verified": true},
         {"quote": "by the glimmer of the half-extinguished light", "ref": "Vol. I, ch. IV", "verified": true}
       ],
       "ruling": [
