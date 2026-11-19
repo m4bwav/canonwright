@@ -10,7 +10,7 @@
     {
       "name": "canonwright",
       "source": "./",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "Canon bibles for adapting a published book with AI image and video models: quoted descriptions with chapter refs, rulings where the book is silent, model misses and fixes, yes/no canon checks. cw.py new, lint, check, export."
     }
   ]
