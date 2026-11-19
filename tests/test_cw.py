@@ -37,7 +37,7 @@ class Lint(unittest.TestCase):
         self.assertTrue(self.errs(entry(canon=[{"paraphrase": "tall", "ref": "ch. 1"}])))
         e, w = cw.lint_bible({"entries": [entry(canon=[{"paraphrase": "tall", "ref": "ch. 1", "verified": False}])]})
         self.assertEqual(e, [])
-        self.assertEqual(len(w), 1)
+        self.assertEqual(len([x for x in w if "paraphrase" in x]), 1)
 
     def test_long_quote_only_public_domain(self):
         q = " ".join(["word"] * 30)
@@ -137,6 +137,82 @@ class Cli(unittest.TestCase):
         if not os.environ.get(cw.HOME_ENV):
             self.skipTest("CANONWRIGHT_HOME unset")
         self.assertEqual(self.run_cw("lint").returncode, 0, self.run_cw("lint").stdout)
+
+
+class JsonAndHash(unittest.TestCase):
+    def run_cw(self, *args):
+        return subprocess.run([sys.executable, os.path.join(SKILL, "scripts", "cw.py")] + list(args),
+                              capture_output=True, text=True, encoding="utf-8")
+
+    def copy_example(self, d):
+        p = os.path.join(d, "b")
+        os.makedirs(p)
+        with open(os.path.join(EXAMPLE, "bible.json"), encoding="utf-8") as f:
+            text = f.read()
+        with open(os.path.join(p, "bible.json"), "w", encoding="utf-8", newline="") as f:
+            f.write(text)
+        return p
+
+    def test_lint_json_clean_is_empty_list(self):
+        r = self.run_cw("lint", "--json", EXAMPLE)
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertEqual(json.loads(r.stdout), [])
+
+    def test_lint_json_issue_fields(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = self.copy_example(d)
+            bp = os.path.join(p, "bible.json")
+            b = cw.load(p)
+            b["entries"][1]["canon"][0].pop("ref")
+            b["canon_hash"] = cw.canon_hash(b)
+            with open(bp, "w", encoding="utf-8") as f:
+                json.dump(b, f, indent=2)
+            r = self.run_cw("lint", "--json", p)
+            self.assertEqual(r.returncode, 1)
+            issues = json.loads(r.stdout)
+            self.assertEqual([i["code"] for i in issues], ["no-ref"])
+            i = issues[0]
+            self.assertTrue(i["file"].endswith("bible.json") and i["hint"])
+            with open(bp, encoding="utf-8") as f:
+                self.assertIn(b["entries"][1]["id"], f.read().splitlines()[i["line"] - 1])
+
+    def test_hash_ignores_formatting_and_stamp(self):
+        b = cw.load(EXAMPLE)
+        c = json.loads(json.dumps(b))
+        c["canon_hash"] = "sha256:other"
+        self.assertEqual(cw.canon_hash(b), cw.canon_hash(c))
+        self.assertEqual(b["canon_hash"], cw.canon_hash(b))
+
+    def test_stale_until_restamp(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = self.copy_example(d)
+            bp = os.path.join(p, "bible.json")
+            out = os.path.join(d, "checks.json")
+            self.assertEqual(self.run_cw("export", p, "--to", "artwright", "--out", out).returncode, 0)
+            self.assertEqual(self.run_cw("verify", p, out).returncode, 0)
+            with open(bp, encoding="utf-8") as f:
+                text = f.read()
+            with open(bp, "w", encoding="utf-8") as f:
+                f.write(text.replace("yellow skin", "green skin", 1))
+            r = self.run_cw("lint", "--json", p)
+            self.assertEqual([i["code"] for i in json.loads(r.stdout)], ["stale-hash"])
+            self.assertEqual(self.run_cw("export", p, "--to", "artwright").returncode, 1)
+            self.assertEqual(self.run_cw("lint", "--json", p).returncode, 1)
+            self.assertEqual(self.run_cw("stamp", p).returncode, 0)
+            self.assertEqual(json.loads(self.run_cw("lint", "--json", p).stdout), [])
+            r = self.run_cw("verify", "--json", p, out)
+            self.assertEqual(r.returncode, 1)
+            self.assertEqual([x["code"] for x in json.loads(r.stdout)], ["stale-output"])
+
+    def test_stamp_keeps_formatting(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = self.copy_example(d)
+            bp = os.path.join(p, "bible.json")
+            with open(bp, encoding="utf-8") as f:
+                before = f.read()
+            self.run_cw("stamp", p)
+            with open(bp, encoding="utf-8") as f:
+                self.assertEqual(f.read(), before)
 
 
 if __name__ == "__main__":

@@ -19,7 +19,8 @@ The book is the canon. A bible records what it says, where, and what models get 
 1. `CW new <work> --dir <bibles folder> [--public-domain]`. Works under copyright go in `$CANONWRIGHT_HOME/bibles/`, quotes of 25 words or fewer.
 2. Read the book a section at a time with readwright (`rw.py outline`, then the chapters, then grep); never describe from memory or from film and fan images.
 3. Fill entries in [bible format](references/bible-format.md) (worked example: [Frankenstein 1818](examples/frankenstein-1818/bible.json)). Every canon line carries a quote and its chapter ref. A trait the book leaves out (hair length, clothes, colour) still gets a value, written as a ruling with its reason, so the model does not drift between shots. Without the book on disk, write a paraphrase marked `"verified": false`.
-4. `CW lint` until clean, then `CW md <bible>`.
+4. `CW lint --json <bible>` and fix each issue by its `hint`, looping until it prints `[]`; then `CW stamp <bible>` and `CW md <bible>`.
+5. When canon changes later, lint reports `stale-hash`: rebuild or recheck what was built from the bible (`CW verify <bible> <export.json ...>` lists outputs from older canon), then `CW stamp` again. `CW export` refuses a stale bible.
 
 ## Rules (each failed without this skill)
 

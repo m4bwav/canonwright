@@ -19,4 +19,4 @@ Entry fields:
 | `checks` | no | `{code, claim, ref}`: yes/no claims for scoring takes |
 | `corrections` | no | `{id, text, locked}`; a locked correction is never undone by a later session; disagreement goes to the owner |
 
-`cw.py lint` enforces: a ref on every canon line; a quote, or an unverified paraphrase; a reason on every ruling; a fix on every miss; code, claim and ref on every check; unique ids and codes; quotes of at most 25 words unless the work is public domain.
+`cw.py lint` (`--json` for a list of `{file, line, code, severity, message, hint}`, `[]` when clean) enforces: a `canon_hash` that matches the canon (set by `cw.py stamp`; outputs from `export` carry the same hash so `cw.py verify` can name stale ones); a ref on every canon line; a quote, or an unverified paraphrase; a reason on every ruling; a fix on every miss; code, claim and ref on every check; unique ids and codes; quotes of at most 25 words unless the work is public domain.
