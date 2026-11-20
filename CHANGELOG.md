@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0] - 2026-11-19
+
+- Optional `motif` kind with `states` (`{state, ref}` per appearance) and an optional `role` (`{text, ref}`) on places; lint requires the ref (`state-incomplete`, `role-incomplete`). Existing bibles lint unchanged (PR #6).
+
 ## [0.2.0] - 2026-11-18
 
 - `cw.py lint --json`: prints `[]` when clean, else one object per issue with file, line, a stable code and a hint; the skill loops on it until `[]`.

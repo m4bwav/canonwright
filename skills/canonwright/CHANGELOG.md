@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261119-2 · 2026-11-19 · Release 0.3.0
+- because: C-20261119-1
+- files: .claude-plugin/plugin.json, .claude-plugin/marketplace.json, evergreen.json (version)
+- Version 0.2.0 to 0.3.0, tag v0.3.0.
+
 ### C-20261119-1 · 2026-11-19 · motif kind with states; place role
 - because: book learnings round 6 (Truby, The Anatomy of Story, ch. 6-7)
 - files: references/bible-format.md, scripts/cw.py (KINDS, lint, md), tests/test_cw.py (Lint)
