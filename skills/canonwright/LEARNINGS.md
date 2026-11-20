@@ -21,3 +21,4 @@ Lessons that shaped [SKILL.md](SKILL.md) and cw.py. Seeded 2026-11-15 from a har
 - L-017 `coded-checklist` · 2026-11-15 · film notes [19] · Canon misses were not countable until each was a coded yes/no claim; a local vision judge then agreed 84 % with human reads. · `checks` with code and ref; export to artwright.
 - L-018 `invented-spectacle` · 2026-11-15 · film notes [46] · Models add spectacle the scene lacks. · A `no-...` check.
 - L-019 `owner-ruling-beats-reference` · 2026-11-15 · film notes [60] · A reference photo showed parts the owner ruled out. · Record the owner ruling; it beats the picture.
+- L-020 `motif-states-per-chapter` · 2026-11-19 · Truby, Anatomy of Story ch. 7 · A recurring symbol changes a little at each appearance; one fixed description flattens the progression. · `motif` entry with a `states` line per chapter, each cited.

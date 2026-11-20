@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261119-1 · 2026-11-19 · motif kind with states; place role
+- because: book learnings round 6 (Truby, The Anatomy of Story, ch. 6-7)
+- files: references/bible-format.md, scripts/cw.py (KINDS, lint, md), tests/test_cw.py (Lint)
+- Optional `motif` kind with `states` `{state, ref}` per appearance and optional `role` `{text, ref}` on places; lint requires the ref (`state-incomplete`, `role-incomplete`). Existing bibles lint unchanged.
+
 ### C-20261118-1 · 2026-11-18 · lint --json loop and canon hash stamp
 - because: technique harvest from legend-of-alan/spookery (checker that prints [] when clean; pack_rev content hash), ideas only
 - files: SKILL.md (Build a bible), references/bible-format.md, scripts/cw.py (lint, stamp, verify, export), tests/test_cw.py (JsonAndHash), examples/frankenstein-1818/bible.json (stamped)
