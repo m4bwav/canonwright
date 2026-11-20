@@ -9,7 +9,7 @@ Entry fields:
 | Field | Required | Meaning |
 |---|---|---|
 | `id` | yes | slug, unique in the bible |
-| `kind` | yes | character, creature, place, object, magic, tech, event |
+| `kind` | yes | character, creature, place, object, magic, tech, event, motif |
 | `name`, `aliases` | name | words that mark the entity in a prompt (`cw.py check`) |
 | `canon` | yes | `{quote, ref, verified}`; `paraphrase` instead of `quote` only with `verified: false` (book text not on disk) |
 | `ruling` | when the book is silent or the owner overrides | `{text, why, by, date}` |
@@ -17,6 +17,8 @@ Entry fields:
 | `misses` | no | `{model, miss, fix, route, verified}`; route is wording, edit-canon-picture, 3d, hide-far; `verified` = a take passed after the fix |
 | `never_say` | no | words whose everyday meaning pulls the wrong picture |
 | `checks` | no | `{code, claim, ref}`: yes/no claims for scoring takes |
+| `states` | no (motif) | `{state, ref}` per chapter a recurring object or image appears, in book order; it repeats and changes a little each time, so shots keep the progression (Truby, *Anatomy of Story* ch. 7) |
+| `role` | no (place) | `{text, ref}`: what the place does to the hero (hems in, frees, mirrors the weakness), so prompts keep that quality, not only the layout (Truby ch. 6) |
 | `corrections` | no | `{id, text, locked}`; a locked correction is never undone by a later session; disagreement goes to the owner |
 
-`cw.py lint` (`--json` for a list of `{file, line, code, severity, message, hint}`, `[]` when clean) enforces: a `canon_hash` that matches the canon (set by `cw.py stamp`; outputs from `export` carry the same hash so `cw.py verify` can name stale ones); a ref on every canon line; a quote, or an unverified paraphrase; a reason on every ruling; a fix on every miss; code, claim and ref on every check; unique ids and codes; quotes of at most 25 words unless the work is public domain.
+`cw.py lint` (`--json` for a list of `{file, line, code, severity, message, hint}`, `[]` when clean) enforces: a `canon_hash` that matches the canon (set by `cw.py stamp`; outputs from `export` carry the same hash so `cw.py verify` can name stale ones); a ref on every canon line; a quote, or an unverified paraphrase; a reason on every ruling; a fix on every miss; a ref on every motif state and place role; code, claim and ref on every check; unique ids and codes; quotes of at most 25 words unless the work is public domain.

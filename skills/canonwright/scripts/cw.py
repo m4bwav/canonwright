@@ -23,7 +23,7 @@ import sys
 
 HOME_ENV = "CANONWRIGHT_HOME"
 MAX_QUOTE_WORDS = 25
-KINDS = {"character", "creature", "place", "object", "magic", "tech", "event"}
+KINDS = {"character", "creature", "place", "object", "magic", "tech", "event", "motif"}
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXAMPLES = os.path.join(os.path.dirname(HERE), "examples")
 
@@ -59,6 +59,11 @@ def render_md(b):
             out.append("- %s (%s)%s" % (body, c.get("ref", "no ref"), flag))
         for r in e.get("ruling", []):
             out.append("- Ruling: %s (why: %s; by %s, %s)" % (r.get("text"), r.get("why"), r.get("by", "?"), r.get("date", "?")))
+        if e.get("role"):
+            ro = e["role"]
+            out.append("- Role for the hero: %s (%s)" % (ro.get("text"), ro.get("ref", "no ref")))
+        for st in e.get("states", []):
+            out.append("- State at %s: %s" % (st.get("ref", "no ref"), st.get("state")))
         if e.get("prefer"):
             out.append("- Prefer: %s" % e["prefer"])
         for m in e.get("misses", []):
@@ -104,6 +109,8 @@ HINTS = {
     "check-incomplete": "a check needs code, claim and ref",
     "duplicate-check-code": "give each check of an entry its own code",
     "correction-incomplete": "a correction needs id and text",
+    "state-incomplete": "a motif state needs state and the chapter ref where it appears",
+    "role-incomplete": "a place role needs text and the chapter ref that shows it",
     "stale-hash": "canon changed since the last stamp: review outputs built from it, then run cw.py stamp",
     "unstamped": "run cw.py stamp to record the canon hash",
     "cannot-read": "fix the JSON syntax or the path",
@@ -159,6 +166,12 @@ def lint_issues(b):
                 add(eid, "duplicate-check-code", "%s checks[%d]: duplicate code %s" % (eid, i, k["code"]))
             else:
                 codes.add(k["code"])
+        for i, st in enumerate(e.get("states", [])):
+            if not isinstance(st, dict) or not st.get("state") or not st.get("ref"):
+                add(eid, "state-incomplete", "%s states[%d]: needs state and ref" % (eid, i))
+        ro = e.get("role")
+        if ro is not None and (not isinstance(ro, dict) or not ro.get("text") or not ro.get("ref")):
+            add(eid, "role-incomplete", "%s role: needs text and ref" % eid)
         for i, c in enumerate(e.get("corrections", [])):
             if not c.get("id") or not c.get("text"):
                 add(eid, "correction-incomplete", "%s corrections[%d]: needs id and text" % (eid, i))

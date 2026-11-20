@@ -57,6 +57,23 @@ class Lint(unittest.TestCase):
         dup = [{"code": "a", "claim": "b", "ref": "c"}] * 2
         self.assertTrue(self.errs(entry(checks=dup)))
 
+    def test_motif_states_need_ref(self):
+        good = entry(kind="motif", states=[{"state": "whole", "ref": "ch. 2"}, {"state": "cracked", "ref": "ch. 9"}])
+        self.assertEqual(self.errs(good), [])
+        self.assertTrue(self.errs(entry(kind="motif", states=[{"state": "cracked"}])))
+        self.assertTrue(self.errs(entry(kind="motif", states=["cracked"])))
+
+    def test_place_role_needs_ref(self):
+        self.assertEqual(self.errs(entry(kind="place", role={"text": "hems him in", "ref": "ch. 3"})), [])
+        self.assertTrue(self.errs(entry(kind="place", role={"text": "hems him in"})))
+        self.assertTrue(self.errs(entry(kind="place", role="hems him in")))
+
+    def test_motif_and_role_render(self):
+        md = cw.render_md({"entries": [entry(kind="motif", states=[{"state": "cracked", "ref": "ch. 9"}],
+                                             role={"text": "frees her", "ref": "ch. 4"})]})
+        self.assertIn("State at ch. 9: cracked", md)
+        self.assertIn("Role for the hero: frees her (ch. 4)", md)
+
     def test_bad_kind_and_dup_id(self):
         self.assertTrue(self.errs(entry(kind="robot")))
         b = {"entries": [entry(), entry()]}
