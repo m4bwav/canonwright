@@ -2,7 +2,7 @@
 
 ![canonwright banner](.github/images/banner.jpg)
 
-A Claude Code plugin for adapting a published book with AI image and video models. It keeps a canon bible per book: what the text says each character, creature, place and object looks like (quoted, with chapter refs), what you ruled where the book is silent, what the models keep getting wrong and what fixed it, and yes/no checks you can score takes against.
+An agent plugin for adapting a published book with AI image and video models. It keeps a canon bible per book: what the text says each character, creature, place and object looks like (quoted, with chapter refs), what you ruled where the book is silent, what the models keep getting wrong and what fixed it, and yes/no checks you can score takes against.
 
 ## Install
 
